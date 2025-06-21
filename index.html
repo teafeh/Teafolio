@@ -112,38 +112,40 @@
             <div class="portfolio-grid">
                 <!-- Project Card 1 -->
                 <div class="project-card">
-                    <img src="./image/Group 30.png" alt="Project 1 Screenshot">
+                    <img src="./image/oasisPreview.png">
                     <div class="card-overlay">
-                        <h4>E-commerce Website</h4>
-                        <p>A fully responsive e-commerce platform with a custom backend.</p>
-                        <div class="tech-stack"><span>React</span><span>CSS</span><span>PHP</span></div>
+                        <h4>Investment Website</h4>
+                        <p>A modern investment platform that helps users grow their wealth through simple, secure, and transparent financial tools.</p>
+                        <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JAVASCRIPT</span><span>API</span></div>
                         <div class="project-links">
-                            <a href="#" target="_blank" rel="noopener noreferrer" title="Live Demo"><i class="bi bi-link-45deg"></i></a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" title="GitHub Repo"><i class="bi bi-github"></i></a>
+                            <a href="https://oasisfunds2025.vercel.app/" target="_blank" rel="noopener noreferrer" title="Live Demo"><i class="bi bi-link-45deg"></i></a>
+                            <a href="https://github.com/teafeh/oasisfunds2025.git" target="_blank" rel="noopener noreferrer" title="GitHub Repo"><i class="bi bi-github"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- Project Card 2 -->
                 <div class="project-card">
-                    <img src="./image/Group 31.png" alt="Project 2 Screenshot">
+                    <img src="./image/dollertrackerPreview.png" alt="Project 2 Screenshot">
                      <div class="card-overlay">
-                        <h4>Portfolio Template</h4>
-                        <p>A sleek, modern portfolio template designed in Webflow.</p>
-                        <div class="tech-stack"><span>Webflow</span><span>Figma</span></div>
+                        <h4>Expense tracking tool</h4>
+                        <p>A minimalistic expense tracking tool that helps you manage and monitor your daily spending, one dollar at a time.</p>
+                        <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JAVASCRIPT</span><span>Figma</span></div>
                         <div class="project-links">
-                            <a href="#" target="_blank" rel="noopener noreferrer" title="Live Demo"><i class="bi bi-link-45deg"></i></a>
+                            <a href="https://1-dollapo.vercel.app/" target="_blank" rel="noopener noreferrer" title="Live Demo"><i class="bi bi-link-45deg"></i></a>
+                             <a href="https://github.com/teafeh/1Dollapo.git" target="_blank" rel="noopener noreferrer" title="GitHub Repo"><i class="bi bi-github"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- Project Card 3 -->
                 <div class="project-card">
-                    <img src="./image/Group 32.png" alt="Project 3 Screenshot">
+                    <img src="./image/dfdpreview.png" alt="Project 3 Screenshot">
                      <div class="card-overlay">
-                        <h4>Telegram Bot</h4>
-                        <p>An automation bot for Telegram developed with Python.</p>
-                        <div class="tech-stack"><span>Python</span><span>APIs</span></div>
+                        <h4>E-commerce Website</h4>
+                        <p>A responsive platform for booking private chefs, with user accounts, session management, and custom menu experiences.</p>
+                        <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JAVASCRIPT</span><span>PHP</span></div>
                         <div class="project-links">
-                            <a href="#" target="_blank" rel="noopener noreferrer" title="GitHub Repo"><i class="bi bi-github"></i></a>
+                            <a href="https://dfd-eight.vercel.app/" target="_blank" rel="noopener noreferrer" title="Live Demo"><i class="bi bi-link-45deg"></i></a>
+                            <a href="https://github.com/teafeh/dfd.git" target="_blank" rel="noopener noreferrer" title="GitHub Repo"><i class="bi bi-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -288,43 +290,6 @@
         </div>
     </footer>
 
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        // Toggle mobile menu
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu on link click & smooth scroll
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Check if the link is an anchor link
-                if (link.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    
-                    const targetId = link.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-
-                    if (targetSection) {
-                         // Smooth scroll to section
-                        window.scrollTo({
-                            top: targetSection.offsetTop - 70, // Adjust for header height
-                            behavior: 'smooth'
-                        });
-                    }
-
-                    // Close mobile menu if active
-                    if (hamburger.classList.contains('active')) {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('active');
-                    }
-                }
-            });
-        });
-    </script>
+    <script src="./script/script.js"></script>
 </body>
 </html>

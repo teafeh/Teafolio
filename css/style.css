@@ -299,7 +299,15 @@ img {
     transition: all 0.4s ease;
 }
 
+/* For desktop hover */
 .project-card:hover .card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- NEW --- */
+/* For mobile tap-to-reveal, toggled by JavaScript */
+.project-card.mobile-active .card-overlay {
     opacity: 1;
     transform: translateY(0);
 }
