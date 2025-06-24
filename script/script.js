@@ -80,3 +80,76 @@
                 }
             }
         });
+
+
+
+
+        // === CONTACT FORM LOGIC ===
+
+// 1. Get references to the form and the status message div
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+
+// 2. Add an event listener for the form's submit event
+contactForm.addEventListener('submit', function(event) {
+    // 3. Prevent the default form submission (which reloads the page)
+    event.preventDefault();
+
+    // 4. Create a FormData object from the form
+    const formData = new FormData(contactForm);
+    const object = {};
+    formData.forEach((value, key) => {
+        object[key] = value;
+    });
+
+    // 5. Add your Web3Forms Access Key
+    // IMPORTANT: Replace with your actual Access Key
+    object.access_key = 'ae840849-198d-48e6-a24b-4ddc769e57db'; 
+
+    const json = JSON.stringify(object);
+
+    // 6. Show a "sending" message
+    formStatus.innerHTML = "Sending...";
+    formStatus.classList.add('sending');
+    formStatus.classList.remove('success', 'error');
+
+    // 7. Send the data using fetch
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let jsonResponse = await response.json();
+            if (response.status == 200) {
+                // 8. Handle SUCCESS
+                formStatus.innerHTML = jsonResponse.message;
+                formStatus.classList.add('success');
+                formStatus.classList.remove('sending');
+            } else {
+                // 9. Handle ERROR
+                console.log(response);
+                formStatus.innerHTML = jsonResponse.message;
+                formStatus.classList.add('error');
+                formStatus.classList.remove('sending');
+            }
+        })
+        .catch(error => {
+            // 10. Handle network errors
+            console.log(error);
+            formStatus.innerHTML = "Something went wrong! Please try again.";
+            formStatus.classList.add('error');
+            formStatus.classList.remove('sending');
+        })
+        .then(function() {
+            // 11. Clear the form and hide the message after a few seconds
+            contactForm.reset();
+            setTimeout(() => {
+                formStatus.innerHTML = "";
+                formStatus.classList.remove('success', 'error');
+            }, 6000); // 6 seconds
+        });
+});

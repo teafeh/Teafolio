@@ -599,3 +599,45 @@ img {
         text-align: center;
     }
 }
+
+
+
+/* === FORM STATUS MESSAGE STYLES === */
+.form-status {
+    width: 100%;
+    max-width: 600px; /* Match form width if needed */
+    margin: 20px auto 0;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    display: none; /* Hidden by default */
+}
+
+.form-status.sending,
+.form-status.success,
+.form-status.error {
+    display: block; /* Show when a class is added */
+}
+
+.form-status.sending {
+    background-color: #e0e7ff; /* Light blue */
+    color: #4338ca;
+}
+
+.form-status.success {
+    background-color: #dcfce7; /* Light green */
+    color: #166534;
+}
+
+.form-status.error {
+    background-color: #fee2e2; /* Light red */
+    color: #991b1b;
+}
+
+/* Make sure the message appears below the form */
+.contact-wrapper {
+    position: relative;
+    flex-direction: column; /* Stack form and info vertically */
+    align-items: center;
+}
