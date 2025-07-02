@@ -1,0 +1,232 @@
+/* --- Color Palette & Global Styles --- */
+/* Inspired by your portfolio: dark theme with purple accents */
+:root {
+    --bg-color: #0d0d0d; /* Very dark background */
+    --notepad-bg: #1a1a1a; /* Slightly lighter for the notepad */
+    --primary-accent: #b862ff; /* Vibrant purple from your design */
+    --text-primary: #e0e0e0; /* Off-white for readability */
+    --text-secondary: #a0a0a0; /* Grey for meta text and captions */
+    --border-color: #333;
+    --red-accent: #ff5555; /* For the close button */
+    --red-accent-hover: #ff3333;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.7;
+}
+
+/* --- Notepad Container & Layout --- */
+.notepad-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 5vh 20px; /* Use viewport height for flexible padding */
+}
+
+.notepad {
+    width: 100%;
+    max-width: 850px;
+    background-color: var(--notepad-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    overflow: hidden; /* Ensures content stays within rounded corners */
+}
+
+.notepad-header {
+    background-color: #252525;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.close-btn {
+    width: 28px;
+    height: 28px;
+    background-color: var(--red-accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 1;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+    background-color: var(--red-accent-hover);
+    transform: scale(1.1);
+}
+
+/* --- Content Styling --- */
+.notepad-content {
+    padding: 2.5rem 3rem;
+}
+
+h1 {
+    color: var(--primary-accent);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: var(--primary-accent);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+p, li {
+    font-size: 1rem;
+}
+
+.project-meta {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    border-left: 3px solid var(--primary-accent);
+    padding-left: 1.5rem;
+}
+
+.project-meta li {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.project-meta strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.workflow-list {
+    list-style-type: none; /* Remove default numbers */
+    counter-reset: workflow-counter;
+    padding-left: 0;
+}
+
+.workflow-list li {
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 2rem;
+}
+
+.workflow-list li::before {
+    counter-increment: workflow-counter;
+    content: counter(workflow-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-accent);
+    color: var(--notepad-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+
+/* --- Image Styling --- */
+.case-study-image {
+    margin: 2rem 0;
+}
+
+.case-study-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    display: block;
+}
+
+.case-study-image figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.75rem;
+}
+
+
+/* --- Responsive Design --- */
+/* For Tablets */
+@media (max-width: 768px) {
+    .notepad-content {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* For Mobile Phones */
+@media (max-width: 480px) {
+    body {
+        -webkit-text-size-adjust: 100%; /* Prevent font scaling on mobile */
+    }
+    
+    .notepad-container {
+        padding: 20px 10px;
+    }
+
+    .notepad-content {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .workflow-list li {
+        padding-left: 0;
+        padding-top: 45px; /* Space for the counter */
+    }
+
+    .workflow-list li::before {
+        left: 0;
+        top: 0;
+    }
+}

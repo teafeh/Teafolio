@@ -641,3 +641,14 @@ img {
     flex-direction: column; /* Stack form and info vertically */
     align-items: center;
 }
+.btn-case{
+    padding: 3px;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-case:hover{
+    background-color: var(--primary-hover-color);
+}
