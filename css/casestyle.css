@@ -181,153 +181,93 @@ li {
   margin-top: 0.75rem;
 }
 
-
-/* === FULLY RESPONSIVE CANVA VIDEO SECTION (REVISED) === */
-
-/* 1. Main wrapper for the video section */
-.canva-video-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers the heading and grid inside */
-  margin: 4rem auto; /* Vertical spacing and horizontal centering */
-
-  /* --- RESPONSIVE WIDTH (Mobile First) --- */
-  width: 90%; /* Looks great on mobile */
-  max-width: 800px; /* IMPORTANT: Prevents it from being too wide on large monitors */
-}
-
-/* 2. Grid container within the section */
-.canva-video-section .portfolio-grid {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 0;
-  gap: 0;
-}
-
-/* 3. The video card itself */
-.canva-video-section .project-card.video-card {
-  width: 100%; /* Card takes full width of its parent */
-  aspect-ratio: 16 / 9; /* Modern, clean way to maintain 16:9 ratio */
+/* --- NEW CLIENT REVIEW STYLES --- */
+.client-review blockquote {
   position: relative;
-  overflow: hidden;
-  background-color: #000;
-  border-radius: 8px; /* Softer corners */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); /* Adds nice depth */
+  background-color: #222; /* Slightly different background to stand out */
+  border-left: 5px solid var(--primary-accent);
+  padding: 1.5rem 2rem;
+  border-radius: 0 8px 8px 0;
+  margin-top: 1rem;
 }
 
-/* 4. The video element, positioned to fill the card */
-.canva-video-section .video-preview {
+.client-review blockquote p {
+  font-style: italic;
+  font-size: 1.1rem; /* Make the quote text slightly larger */
+  color: var(--text-primary); /* Use primary text color for emphasis */
+  margin-bottom: 1rem;
+}
+
+.client-review blockquote cite {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: block;
+  text-align: right;
+}
+
+/* Optional: decorative quotation mark */
+.client-review blockquote::before {
+  content: "“";
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  color: var(--primary-accent);
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Fills the container without stretching */
-  z-index: 1;
+  left: 1rem;
+  top: -0.5rem;
+  opacity: 0.2;
 }
 
-/* 5. The text overlay */
-.canva-video-section .card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2; /* Sits on top of the video */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end; /* Aligns text content to the bottom */
-  padding: 1.5rem;
-  text-align: left;
-  /* Faded background to make text readable */
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.85) 0%,
-    rgba(0, 0, 0, 0) 60%
-  );
-  opacity: 1;
-  transition: background 0.4s ease;
-}
 
-/* Optional: Make overlay slightly darker on hover */
-.canva-video-section .project-card:hover .card-overlay {
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.95) 0%,
-    rgba(0, 0, 0, 0.1) 70%
-  );
-}
+/* --- Responsive Design --- */
+/* For Tablets */
+@media (max-width: 768px) {
+    .notepad-content {
+        padding: 2rem;
+    }
 
-/* --- Media Queries for Larger Screens --- */
+    h1 {
+        font-size: 1.8rem;
+    }
 
-/* For tablets (e.g., screen width 768px and up) */
-@media (min-width: 768px) {
-  .canva-video-section {
-    width: 70%;
-  }
-}
-
-/* For desktops (e.g., screen width 1024px and up) */
-@media (min-width: 1024px) {
-  .canva-video-section {
-    width: 50%; /* The original 50% width for desktop */
-  }
+    h2 {
+        font-size: 1.4rem;
+    }
 }
 
 /* For Mobile Phones */
-@media (max-width: 600px) {
-  .canva-video-section {
-    width: 90%; /* Use even more screen width on mobile */
-  }
-
-  .canva-video-section .card-overlay {
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .notepad-content {
-    padding: 2rem;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  h2 {
-    font-size: 1.4rem;
-  }
-}
-
 @media (max-width: 480px) {
-  body {
-    -webkit-text-size-adjust: 100%; /* Prevent font scaling on mobile */
-  }
+    body {
+        -webkit-text-size-adjust: 100%; /* Prevent font scaling on mobile */
+    }
+    
+    .notepad-container {
+        padding: 20px 10px;
+    }
 
-  .notepad-container {
-    padding: 20px 10px;
-  }
+    .notepad-content {
+        padding: 1.5rem;
+    }
 
-  .notepad-content {
-    padding: 1.5rem;
-  }
+    h1 {
+        font-size: 1.6rem;
+    }
 
-  h1 {
-    font-size: 1.6rem;
-  }
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .workflow-list li {
+        padding-left: 0;
+        padding-top: 45px; /* Space for the counter */
+    }
 
-  h2 {
-    font-size: 1.3rem;
-  }
+    .workflow-list li::before {
+        left: 0;
+        top: 0;
+    }
 
-  .workflow-list li {
-    padding-left: 0;
-    padding-top: 45px; /* Space for the counter */
-  }
-
-  .workflow-list li::before {
-    left: 0;
-    top: 0;
-  }
+    .client-review blockquote {
+        padding: 1rem 1.5rem;
+    }
 }
